@@ -17,6 +17,8 @@ app.get("/", (req, res, next) => {
 });
 
 app.post("/greetings", (req, res, next) => {
+  res.redirect(`/welcome/${req.body.fname}/${req.body.lname}`);
+});
 
 app.get("/welcome/:fname/:lname", (req, res, next) => {
   res.render("welcome", { fname: req.params.fname, lname: req.params.lname });
