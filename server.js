@@ -17,12 +17,9 @@ app.get("/", (req, res, next) => {
 });
 
 app.post("/greetings", (req, res, next) => {
-  if (req.params.fname) res.locals.fname = res.params.fname;
-  else res.locals.fname = "";
-  if (req.params.lname) res.locals.lname;
-  else res.locals.lname = "";
 
-  res.render("welcome");
+app.get("/welcome/:fname/:lname", (req, res, next) => {
+  res.render("welcome", { fname: req.params.fname, lname: req.params.lname });
 });
 
 app.get("/test", (req, res, next) => {
